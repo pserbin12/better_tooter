@@ -11,4 +11,17 @@ class TootController < ApplicationController
     @toots = Toot.toots_for(ids)
   end
 
+  def create
+    toot = current_user.toots.create(toot_params)
+    toot.save!
+
+    redirect_to user_path(id: current_user.id)
+  end
+
+  private
+
+  def toot_params
+    params.require(:toot).permit(:message)
+  end
+
 end
