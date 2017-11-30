@@ -71,3 +71,4 @@ end
 
 gem 'figaro'
 gem 'fog'
+gem "fog-aws"
